@@ -1,0 +1,9 @@
+Running savilerow. I found 2 solutions
+I constructed 2 pentagon in 356ms (= 0:00:00.356)
+Running savilerow. I found 2 solutions
+I constructed 4 pentagon in 743ms (= 0:00:00.743)
+Running savilerow. I found 3 solutions
+I constructed 7 pentagon in 1048ms (= 0:00:01.048)
+Running savilerow. I found 3 solutions
+I constructed 10 pentagon in 1376ms (= 0:00:01.376)
+gap> 

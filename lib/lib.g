@@ -30,15 +30,32 @@ s_xy := function(obj, x, y)
 end;
 
 is_bijective := function(obj)
-  local c,n,x,y;
+  local c, n, x, y;
+
   n := obj!.size;
   c := Cartesian([1..n],[1..n]);
+
   for x in c do
     if not Number(c, z->x=s_xy(obj, z[1], z[2])) = 1 then
       return false;
     fi;
   od;
   return true;
+end;
+
+to_permutation := function(obj)
+  local n,c,p,x,y;
+
+  n := obj!.size;
+  p := [1..n^2];
+  c := Cartesian([1..n], [1..n]);
+
+  for x in [1..n] do
+    for y in [1..n] do
+      p[Position(c, [x,y])] := Position(c, s_xy(obj, x, y));
+    od;
+  od;
+  return PermList(p);
 end;
 
 
