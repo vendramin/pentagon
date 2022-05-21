@@ -1,0 +1,37 @@
+Running savilerow. I found 4 solutions
+I constructed 4 pentagon in 570ms (= 0:00:00.570)
+Running savilerow. I found 3 solutions
+I constructed 7 pentagon in 996ms (= 0:00:00.996)
+Running savilerow. I found 2 solutions
+I constructed 9 pentagon in 1468ms (= 0:00:01.468)
+Running savilerow. I found 2 solutions
+I constructed 11 pentagon in 1873ms (= 0:00:01.873)
+Running savilerow. I found 4 solutions
+I constructed 15 pentagon in 2335ms (= 0:00:02.335)
+Running savilerow. I found 4 solutions
+I constructed 19 pentagon in 2766ms (= 0:00:02.766)
+Running savilerow. I found 4 solutions
+I constructed 23 pentagon in 3230ms (= 0:00:03.230)
+Running savilerow. I found 4 solutions
+I constructed 27 pentagon in 3647ms (= 0:00:03.647)
+Running savilerow. I found 4 solutions
+I constructed 31 pentagon in 4065ms (= 0:00:04.065)
+Running savilerow. I found 6 solutions
+I constructed 37 pentagon in 4512ms (= 0:00:04.512)
+Running savilerow. I found 4 solutions
+I constructed 41 pentagon in 4919ms (= 0:00:04.919)
+Running savilerow. I found 8 solutions
+I constructed 49 pentagon in 5388ms (= 0:00:05.388)
+Running savilerow. I found 6 solutions
+I constructed 55 pentagon in 5839ms (= 0:00:05.839)
+Running savilerow. I found 7 solutions
+I constructed 62 pentagon in 6315ms (= 0:00:06.315)
+Running savilerow. I found 5 solutions
+I constructed 67 pentagon in 6755ms (= 0:00:06.755)
+Running savilerow. I found 4 solutions
+I constructed 71 pentagon in 7224ms (= 0:00:07.224)
+Running savilerow. I found 7 solutions
+I constructed 78 pentagon in 7670ms (= 0:00:07.670)
+Running savilerow. I found 2 solutions
+I constructed 80 pentagon in 8117ms (= 0:00:08.117)
+gap> 
