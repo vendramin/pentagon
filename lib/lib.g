@@ -93,4 +93,45 @@ to_permutation := function(obj)
   return PermList(p);
 end;
 
+is_involutive := function(obj)
+  local t, c, x, y, u, v, n;
+
+  n := obj!.size;
+
+  for x in [1..n] do
+    for y in [1..n] do
+      t := s_xy(obj, x, y);
+      u := t[1];
+      v := t[2];
+      if not s_xy(obj, u, v) = [x, y] then
+        return false;
+      fi;
+    od;
+  od;
+  return true;
+end;
+
+
+is_idempotent := function(obj)
+  local t, c, x, y, n, u, v;
+
+  n := obj!.size;
+
+  for x in [1..n] do
+    for y in [1..n] do
+      t := s_xy(obj, x, y);
+      u := t[1];
+      v := t[2];
+      if not s_xy(obj, u, v) = t then
+        return false;
+      fi;
+    od;
+  od;
+  return true;
+end;
+
+
+
+
+
 
