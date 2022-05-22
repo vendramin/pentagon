@@ -2,6 +2,41 @@ LoadPackage("SmallSemi");
 
 database_path := "../data/";
 
+is_homomorphism := function(f, x, y)
+  local i, j;
+  for i in [1..x!.size] do
+    for j in [1..y!.size] do
+      if x!.semigroup[i][j] <> y!.semigroup[f[i]][f[j]] then
+        return false;
+      fi;
+      if x!.theta[i][j] <> y!.theta[f[i]][f[j]] then
+        return false;
+      fi;
+    od;
+  od;
+  return true;
+end;
+
+are_isomorphic := function(x, y)
+  local n,p,f;
+  if x!.size <> y!.size then
+    return false;
+  else
+    n := x!.size;
+    for p in SymmetricGroup(n) do
+      if p = [] then
+        f := [1..n];
+      else
+        f := ListPerm(p,n);
+      fi;
+      if is_homomorphism(f, x, y) then
+        return true;
+      fi;
+    od;
+  fi;
+  return false;
+end;
+
 read_all := function(n)
   local t,x,k,list,semigroup,sols;
 
