@@ -111,7 +111,7 @@ keep_pentagon := function(n, filename)
       #fi; 
     fi;
   od; 
-  Print("I found ", k, " solutions\n");  
+  #Print("I found ", k, " solutions\n");  
   IO_Close(f);
   return l; 
 end;
@@ -162,7 +162,7 @@ read_file := function(n, filename, T)
       Add(l, m);
     fi;
   od; 
-  Print("I found ", k, " solutions\n");  
+  #Print("I found ", k, " solutions\n");  
   return l;
 end;
 
