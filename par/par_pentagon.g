@@ -175,5 +175,8 @@ construct := function(n)
 
   tasks := List([1..NrSmallSemigroups(n)], x->[n,x]);
   result := ParListWithSCSCP(tasks, "construct_byID" );
+
+  Print("I constructed, ", Sum(result), " solutions\n");
+
   return result;
 end;
