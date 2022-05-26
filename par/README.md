@@ -47,7 +47,6 @@ I constructed, 10 solutions
 
 Here is another example:
 ```
-
 gap> init(3);
 gap> construct(3);
 #I  1/18:master --> localhost:26101 : [ 3, 1 ]
