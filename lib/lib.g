@@ -1,6 +1,6 @@
 LoadPackage("SmallSemi");
 
-database_path := "../data/";
+database_path := "../data/size3/";
 
 is_homomorphism := function(f, x, y)
   local i, j;
@@ -130,6 +130,13 @@ is_idempotent := function(obj)
   return true;
 end;
 
+is_cubic := function(obj)
+  if is_bijective(obj) then
+    return Order(to_permutation(obj))=3;
+  else
+    return false;
+  fi;
+end;
 
 
 
