@@ -181,6 +181,7 @@ construct := function(n)
 
   t0 := NanosecondsSinceEpoch();
 
+  LogTo();
   LogTo(Concatenation("pentagon", String(n), ".log"));
 
   # Create files
@@ -202,6 +203,7 @@ enumerate := function(n)
 
   t0 := NanosecondsSinceEpoch();
 
+  LogTo();
   LogTo(Concatenation("pentagon", String(n), ".log"));
 
   # Create files

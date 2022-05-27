@@ -1,9 +1,11 @@
-Running savilerow. I found 2 solutions
-I constructed 2 pentagon in 356ms (= 0:00:00.356)
-Running savilerow. I found 2 solutions
-I constructed 4 pentagon in 743ms (= 0:00:00.743)
-Running savilerow. I found 3 solutions
-I constructed 7 pentagon in 1048ms (= 0:00:01.048)
-Running savilerow. I found 3 solutions
-I constructed 10 pentagon in 1376ms (= 0:00:01.376)
+#I  1/4:master --> localhost:26101 : [ 2, 1 ]
+#I  2/4:master --> localhost:26102 : [ 2, 2 ]
+#I  3/4:master --> localhost:26103 : [ 2, 3 ]
+#I  4/4:master --> localhost:26104 : [ 2, 4 ]
+#I  localhost:26101 --> 1/4:master : 2
+#I  localhost:26103 --> 3/4:master : 4
+#I  localhost:26102 --> 2/4:master : 2
+#I  localhost:26104 --> 4/4:master : 3
+I constructed 11 pentagon in 553ms (= 0:00:00.553)
+11
 gap> 
