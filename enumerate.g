@@ -99,82 +99,6 @@ create_files := function(n)
   od;
 end;
 
-#is_minimal := function(m, centralizer)
-#  local p;
-#  for p in centralizer do
-#    if Flat(m) > Flat(twist_matrix(m, p)) then
-#      return false;
-#      fi;
-#  od;
-#  return true;
-#end;
-
-#is_Lalgebra := function(m)
-#  local x,y,n;
-#  n := Size(m);
-#  for x in [1..n] do
-#    for y in [1..n-1] do
-#      if (m[x][y] = n and m[y][x] = n) and not x=y then
-#        return false;
-#      fi;
-#    od;
-#  od;
-#  return true;
-#end;
-
-keep_pentagon := function(n, filename)
-  local l, k, x, m, f, done;
-    
-  l := [];
-  k := 0;
-
-  f := IO_File(filename, "r");
-  done := false;
-
-  while not done do
-    x := IO_ReadLine(f);
-    if StartsWith(x, "Created information file") then
-      done := true;
-    elif StartsWith(x, "Solution") then
-      m := EvalString(String(x{[46..Size(x)]}));
-        k := k+1;
-        Add(l, m);
-      #fi; 
-    fi;
-  od; 
-#  Print("I found ", k, " solutions\n");  
-  IO_Close(f);
-  return l; 
-end;
-
-
-
-
-#keep_minimal := function(n, filename, group)
-#  local l, k, x, m, f, done;
-#    
-#  l := [];
-#  k := 0;
-#
-#  f := IO_File(filename, "r");
-#  done := false;
-#
-#  while not done do
-#    x := IO_ReadLine(f);
-#    if StartsWith(x, "Created information file") then
-#      done := true;
-#    elif StartsWith(x, "Solution") then
-#      m := EvalString(String(x{[46..Size(x)]}));
-#      if is_minimal(m, group) then
-#        k := k+1;
-#        Add(l, m);
-#      fi; 
-#    fi;
-#  od; 
-#  Print("I found ", k, " solutions\n");  
-#  return l; 
-#end;
-
 read_file := function(n, filename, T)
   local l, k, x, m, f, done;
     
@@ -236,33 +160,5 @@ enumerate := function(n)
   Print("I constructed ", z, " pentagon in ", mytime, "ms (=", StringTime(mytime), ")\n");
 
 end;
-
-
-#  for y in [1..NrSmallSemigroups(n)] do
-#    
-#    t := [];
-#
-#    Print("Running savilerow. ");
-#    output := Concatenation("output", String(n), "_", String(y));
-#    Exec(Concatenation(s, "pentagon", String(n), "_", String(y), ".eprime"));
-#    f := IO_File(Concatenation("pentagon", String(n), "_", String(y), ".eprime.info"), "r");
-#    done := false;
-#
-#    while not done do
-#      x := IO_ReadLine(f);
-#      if StartsWith(x, "SolverSolutionsFound:") then
-#        done := true;
-#        m := EvalString(String(x{[22..Size(x)]}));
-#        z := z+m;
-#      fi;
-#    od;
-#
-#  od;
-#
-#  t1 := NanosecondsSinceEpoch();
-#  mytime := Int(Float((t1-t0)/10^6));
-#  Print("I constructed ", m, " pentagon in ", mytime, "ms (=", StringTime(mytime), ")\n");
-# 
-#end;
 
 
