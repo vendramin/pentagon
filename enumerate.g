@@ -142,10 +142,11 @@ keep_pentagon := function(n, filename)
       #fi; 
     fi;
   od; 
-  Print("I found ", k, " solutions.\n");  
+#  Print("I found ", k, " solutions\n");  
   IO_Close(f);
   return l; 
 end;
+
 
 
 
@@ -197,13 +198,14 @@ read_file := function(n, filename, T)
   return l;
 end;
 
-construct_pentagon := function(n)
-  local y,m,l,T,k,s,f,x,t,output, t0, t1, mytime;
+enumerate := function(n)
+  local done,z,y,m,l,T,k,s,f,x,t,output, t0, t1, mytime;
 
   t0 := NanosecondsSinceEpoch();
 
   m := 0;
-  s := "savilerow -run-solver -all-solutions -solutions-to-stdout-one-line ";
+  z := 0;
+  s := "savilerow -run-solver -all-solutions -solutions-to-null ";
 
   LogTo();
   LogTo(Concatenation("pentagon", String(n), ".log"));
@@ -211,35 +213,56 @@ construct_pentagon := function(n)
   create_files(n);
 
   for y in [1..NrSmallSemigroups(n)] do
-    
-    t := [];
 
-    Print("Running savilerow. ");
+    #Print("Running savilerow. ");
     output := Concatenation("output", String(n), "_", String(y));
-    Exec(Concatenation(s, "pentagon", String(n), "_", String(y), ".eprime >", output));
-    for x in keep_pentagon(n, output) do 
-      Add(t, x);
-      m := m+1;
-    od;
+    Exec(Concatenation(s, "pentagon", String(n), "_", String(y), ".eprime"));
+    f := IO_File(Concatenation("pentagon", String(n), "_", String(y), ".eprime.info"), "r");
+    done := false;
 
- 
-    f := IO_File(Concatenation("pentagon", String(n), "_", String(y), ".g"), "w");
-    
-    IO_WriteLine(f, Concatenation("semigroup", " := ", String(RecoverMultiplicationTable(n,y)), ";"));
-    IO_WriteLine(f, Concatenation("sols", " := ["));
-    for x in t do
-      IO_WriteLine(f, Concatenation(String(x),",")); 
+    while not done do
+      x := IO_ReadLine(f);
+      if StartsWith(x, "SolverSolutionsFound:") then
+        done := true;
+        m := EvalString(String(x{[22..Size(x)]}));
+        z := z+m;
+      fi;
     od;
-    IO_WriteLine(f, "];\n\n");
-#    IO_WriteLine(f, "list := List(sols, x->rec( semigroup := semigroup, theta := x, size := Size(semigroup)));", "\n");
-    IO_Flush(f);
     IO_Close(f);
   od;
 
   t1 := NanosecondsSinceEpoch();
   mytime := Int(Float((t1-t0)/10^6));
-  Print("I constructed ", m, " pentagon in ", mytime, "ms (=", StringTime(mytime), ")\n");
- 
+  Print("I constructed ", z, " pentagon in ", mytime, "ms (=", StringTime(mytime), ")\n");
+
 end;
+
+
+#  for y in [1..NrSmallSemigroups(n)] do
+#    
+#    t := [];
+#
+#    Print("Running savilerow. ");
+#    output := Concatenation("output", String(n), "_", String(y));
+#    Exec(Concatenation(s, "pentagon", String(n), "_", String(y), ".eprime"));
+#    f := IO_File(Concatenation("pentagon", String(n), "_", String(y), ".eprime.info"), "r");
+#    done := false;
+#
+#    while not done do
+#      x := IO_ReadLine(f);
+#      if StartsWith(x, "SolverSolutionsFound:") then
+#        done := true;
+#        m := EvalString(String(x{[22..Size(x)]}));
+#        z := z+m;
+#      fi;
+#    od;
+#
+#  od;
+#
+#  t1 := NanosecondsSinceEpoch();
+#  mytime := Int(Float((t1-t0)/10^6));
+#  Print("I constructed ", m, " pentagon in ", mytime, "ms (=", StringTime(mytime), ")\n");
+# 
+#end;
 
 

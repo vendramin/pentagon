@@ -93,7 +93,7 @@ keep_pentagon := function(n, filename)
       #fi; 
     fi;
   od; 
-  Print("I found ", k, " solutions\n");  
+#: Print("I found ", k, " solutions. ");  
   IO_Close(f);
   return l; 
 end;
@@ -145,6 +145,7 @@ read_file := function(n, filename, T)
     fi;
   od; 
   Print("I found ", k, " solutions\n");  
+  IO_Close(f);
   return l;
 end;
 
@@ -182,17 +183,15 @@ construct_pentagon := function(n)
     Exec(Concatenation(s, "pentagon", String(n), "_", String(y), ".eprime >", output));
     for x in keep_pentagon(n, output) do 
       p := rec( semigroup := RecoverMultiplicationTable(n,y), theta := x, size := n);
-      if is_new(full, p) then
-        Add(t, x);
+      if is_new(t, p) then
+        Add(t, p);
         Add(full, p);
         m := m+1;
       fi;
     od;
 
-    t1 := NanosecondsSinceEpoch();
-    mytime := Int(Float((t1-t0)/10^6));
-#    Print("I constructed ", m, " pentagon in ", mytime, "ms (=", StringTime(mytime), ")\n");
-  
+    Print("I constructed ", Size(t), " solutions.\n");
+
     f := IO_File(Concatenation("pentagon", String(n), "_", String(y), ".g"), "w");
     
     IO_WriteLine(f, Concatenation("semigroup", " := ", String(RecoverMultiplicationTable(n,y)), ";"));
@@ -205,6 +204,9 @@ construct_pentagon := function(n)
     IO_Flush(f);
     IO_Close(f);
   od;
-  Print("I constructed ", Size(full), " solutions\n");
+  t1 := NanosecondsSinceEpoch();
+  mytime := Int(Float((t1-t0)/10^6));
+  Print("I constructed ", m, " pentagon in ", mytime, "ms (=", StringTime(mytime), ")\n");
+ 
 end;
 
