@@ -23,7 +23,6 @@ create_file := function(n, m)
   return lines;
 end;
 
-
 create_files := function(n)
   local f,x,s,k; 
 
@@ -156,23 +155,42 @@ init := function(n)
 end;
 
 construct := function(n)
-  local result, tasks;
+  local result, tasks, t0, t1, mytime;
+
+  t0 := NanosecondsSinceEpoch();
+
+  LogTo(Concatenation("pentagon", Size(n), ".log"));
+
+  # Create files
+  init(n);
 
   tasks := List([1..NrSmallSemigroups(n)], x->[n,x]);
   result := ParListWithSCSCP(tasks, "construct_byID" );
 
-  Print("I constructed, ", Sum(result), " solutions\n");
+  t1 := NanosecondsSinceEpoch();
+  mytime := Int(Float((t1-t0)/10^6));
+  Print("I constructed ", Sum(result), " pentagon in ", mytime, "ms (=", StringTime(mytime), ")\n");
+  
+  return Sum(result);
 
-  return result;
 end;
 
 enumerate := function(n)
-  local result, tasks;
+  local result, tasks, t0, t1, mytime;
+
+  t0 := NanosecondsSinceEpoch();
+
+  LogTo(Concatenation("pentagon", Size(n), ".log"));
+
+  # Create files
+  init(n);
 
   tasks := List([1..NrSmallSemigroups(n)], x->[n,x]);
   result := ParListWithSCSCP(tasks, "enumerate_byID" );
 
-  Print("I constructed, ", Sum(result), " solutions\n");
-
-  return result;
+  t1 := NanosecondsSinceEpoch();
+  mytime := Int(Float((t1-t0)/10^6));
+  Print("I enumerated ", Sum(result), " pentagon in ", mytime, "ms (=", StringTime(mytime), ")\n");
+  
+  return Sum(result);
 end;

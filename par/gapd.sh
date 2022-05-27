@@ -48,7 +48,7 @@
 ##  example, memory usage, start with the workspace etc. The path may be 
 ##  relative (to start from this directory) or absolute. 
 ##  
-GAP="/usr/local/src/gap-4.11.0/bin/gap.sh -b -r -o 2G"
+GAP="/usr/local/src/gap-4.11.1/bin/gap.sh -b -r -o 2G"
 ##
 ###########################################################################
 ##
