@@ -1,6 +1,6 @@
 LoadPackage("SmallSemi");
 
-database_path := "../data/size3/";
+database_path := "../data/size";
 #database_path := "../";
 
 is_homomorphism := function(f, x, y)
@@ -45,8 +45,8 @@ read_all := function(n)
   t := 0;
 
   for k in [1..NrSmallSemigroups(n)] do
-    Display(Concatenation(database_path, "pentagon", String(n), "_", String(k), ".g"));
-    Read(Concatenation(database_path, "pentagon", String(n), "_", String(k), ".g"));
+    Display(Concatenation(database_path, String(n), "/pentagon", String(n), "_", String(k), ".g"));
+    Read(Concatenation(database_path, String(n), "/pentagon", String(n), "_", String(k), ".g"));
 
     semigroup := EvalString("semigroup");
     sols := EvalString("sols");

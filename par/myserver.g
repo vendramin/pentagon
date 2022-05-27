@@ -30,6 +30,7 @@ enumerate_byID := function(id)
     fi;
   od;
 
+  IO_Close(f);
   return z;
 end;
 
