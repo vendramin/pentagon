@@ -1,6 +1,7 @@
 LoadPackage("SmallSemi");
 
 database_path := "../data/size3/";
+database_path := "../";
 
 is_homomorphism := function(f, x, y)
   local i, j;
