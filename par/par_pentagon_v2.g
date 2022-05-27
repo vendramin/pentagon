@@ -165,3 +165,14 @@ construct := function(n)
 
   return result;
 end;
+
+enumerate := function(n)
+  local result, tasks;
+
+  tasks := List([1..NrSmallSemigroups(n)], x->[n,x]);
+  result := ParListWithSCSCP(tasks, "enumerate_byID" );
+
+  Print("I constructed, ", Sum(result), " solutions\n");
+
+  return result;
+end;
