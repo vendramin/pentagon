@@ -191,7 +191,7 @@ construct_pentagon := function(n)
 
     t1 := NanosecondsSinceEpoch();
     mytime := Int(Float((t1-t0)/10^6));
-    Print("I constructed ", m, " pentagon in ", mytime, "ms (=", StringTime(mytime), ")\n");
+#    Print("I constructed ", m, " pentagon in ", mytime, "ms (=", StringTime(mytime), ")\n");
   
     f := IO_File(Concatenation("pentagon", String(n), "_", String(y), ".g"), "w");
     
@@ -205,6 +205,6 @@ construct_pentagon := function(n)
     IO_Flush(f);
     IO_Close(f);
   od;
+  Print("I constructed ", Size(full), " solutions\n");
 end;
-
 
