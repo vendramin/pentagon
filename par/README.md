@@ -30,25 +30,22 @@ in the list `[ 26101 .. 26102 ]` matching those in `gapfarm.sh`.
 8. You should be able to call `construct` which takes the order
 the solution as an argument. Example:
 ```
-gap> init(2);
-gap> construct(2);
+#I  not logging
 #I  1/4:master --> localhost:26101 : [ 2, 1 ]
 #I  2/4:master --> localhost:26102 : [ 2, 2 ]
 #I  3/4:master --> localhost:26103 : [ 2, 3 ]
 #I  4/4:master --> localhost:26104 : [ 2, 4 ]
-#I  localhost:26103 --> 3/4:master : 3
+#I  localhost:26103 --> 3/4:master : 4
+#I  localhost:26101 --> 1/4:master : 2
 #I  localhost:26102 --> 2/4:master : 2
 #I  localhost:26104 --> 4/4:master : 3
-#I  localhost:26101 --> 1/4:master : 2
-I constructed, 10 solutions
-[ 2, 2, 3, 3 ]
+I constructed 11 pentagon in 789ms (= 0:00:00.789)
+11
 
 ```
 
 Here is another example:
 ```
-gap> init(3);
-gap> construct(3);
 #I  1/18:master --> localhost:26101 : [ 3, 1 ]
 #I  2/18:master --> localhost:26102 : [ 3, 2 ]
 #I  3/18:master --> localhost:26103 : [ 3, 3 ]
@@ -57,33 +54,34 @@ gap> construct(3);
 #I  6/18:master --> localhost:26106 : [ 3, 6 ]
 #I  localhost:26104 --> 4/18:master : 2
 #I  7/18:master --> localhost:26104 : [ 3, 7 ]
-#I  localhost:26101 --> 1/18:master : 4
+#I  localhost:26101 --> 1/18:master : 8
 #I  8/18:master --> localhost:26101 : [ 3, 8 ]
-#I  localhost:26105 --> 5/18:master : 4
-#I  9/18:master --> localhost:26105 : [ 3, 9 ]
-#I  localhost:26102 --> 2/18:master : 3
+#I  localhost:26106 --> 6/18:master : 7
+#I  9/18:master --> localhost:26106 : [ 3, 9 ]
+#I  localhost:26102 --> 2/18:master : 4
 #I  10/18:master --> localhost:26102 : [ 3, 10 ]
-#I  localhost:26106 --> 6/18:master : 4
-#I  11/18:master --> localhost:26106 : [ 3, 11 ]
-#I  localhost:26103 --> 3/18:master : 2
+#I  localhost:26105 --> 5/18:master : 10
+#I  11/18:master --> localhost:26105 : [ 3, 11 ]
+#I  localhost:26103 --> 3/18:master : 3
 #I  12/18:master --> localhost:26103 : [ 3, 12 ]
-#I  localhost:26104 --> 7/18:master : 4
+#I  localhost:26104 --> 7/18:master : 8
 #I  13/18:master --> localhost:26104 : [ 3, 13 ]
-#I  localhost:26101 --> 8/18:master : 4
-#I  14/18:master --> localhost:26101 : [ 3, 14 ]
-#I  localhost:26105 --> 9/18:master : 4
-#I  15/18:master --> localhost:26105 : [ 3, 15 ]
-#I  localhost:26102 --> 10/18:master : 6
-#I  16/18:master --> localhost:26102 : [ 3, 16 ]
-#I  localhost:26103 --> 12/18:master : 8
-#I  17/18:master --> localhost:26103 : [ 3, 17 ]
-#I  localhost:26106 --> 11/18:master : 4
-#I  18/18:master --> localhost:26106 : [ 3, 18 ]
-#I  localhost:26104 --> 13/18:master : 6
-#I  localhost:26101 --> 14/18:master : 7
-#I  localhost:26105 --> 15/18:master : 5
-#I  localhost:26102 --> 16/18:master : 4
-#I  localhost:26103 --> 17/18:master : 7
-#I  localhost:26106 --> 18/18:master : 2
-I constructed, 80 solutions
-[ 4, 3, 2, 2, 4, 4, 4, 4, 4, 6, 4, 8, 6, 7, 5, 4, 7, 2 ]
+#I  localhost:26106 --> 9/18:master : 8
+#I  14/18:master --> localhost:26106 : [ 3, 14 ]
+#I  localhost:26102 --> 10/18:master : 9
+#I  15/18:master --> localhost:26102 : [ 3, 15 ]
+#I  localhost:26105 --> 11/18:master : 7
+#I  16/18:master --> localhost:26105 : [ 3, 16 ]
+#I  localhost:26101 --> 8/18:master : 7
+#I  17/18:master --> localhost:26101 : [ 3, 17 ]
+#I  localhost:26103 --> 12/18:master : 10
+#I  18/18:master --> localhost:26103 : [ 3, 18 ]
+#I  localhost:26104 --> 13/18:master : 14
+#I  localhost:26106 --> 14/18:master : 25
+#I  localhost:26105 --> 16/18:master : 10
+#I  localhost:26102 --> 15/18:master : 9
+#I  localhost:26103 --> 18/18:master : 2
+#I  localhost:26101 --> 17/18:master : 7
+I constructed 150 pentagon in 2793ms (= 0:00:02.793)
+150
+```
