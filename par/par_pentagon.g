@@ -163,6 +163,7 @@ read_file := function(n, filename, T)
     fi;
   od; 
   #Print("I found ", k, " solutions\n");  
+  IO_Close(f);
   return l;
 end;
 
