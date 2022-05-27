@@ -1,16 +1,16 @@
 LoadPackage("SmallSemi");
 
 database_path := "../data/size3/";
-database_path := "../";
+#database_path := "../";
 
 is_homomorphism := function(f, x, y)
-  local i, j;
+   local i, j;
   for i in [1..x!.size] do
     for j in [1..y!.size] do
-      if x!.semigroup[i][j] <> y!.semigroup[f[i]][f[j]] then
+       if f[x!.semigroup[i][j]] <> y!.semigroup[f[i]][f[j]] then
         return false;
       fi;
-      if x!.theta[i][j] <> y!.theta[f[i]][f[j]] then
+      if f[x!.theta[i][j]] <> y!.theta[f[i]][f[j]] then
         return false;
       fi;
     od;
