@@ -30,7 +30,6 @@ fix := function(n,k)
   return Group(Filtered(automorphism_group(n,k), x->is_fixed(x, n, k)));
 end;
 
-
 create_file := function(n, l)
   local f,k,lines,perms,tmp1,tmp2,m;
 
@@ -99,30 +98,7 @@ create_files := function(n)
   od;
 end;
 
-#is_minimal := function(m, centralizer)
-#  local p;
-#  for p in centralizer do
-#    if Flat(m) > Flat(twist_matrix(m, p)) then
-#      return false;
-#      fi;
-#  od;
-#  return true;
-#end;
-
-#is_Lalgebra := function(m)
-#  local x,y,n;
-#  n := Size(m);
-#  for x in [1..n] do
-#    for y in [1..n-1] do
-#      if (m[x][y] = n and m[y][x] = n) and not x=y then
-#        return false;
-#      fi;
-#    od;
-#  od;
-#  return true;
-#end;
-
-keep_pentagon := function(n, filename)
+keep := function(n, filename)
   local l, k, x, m, f, done;
     
   l := [];
@@ -147,33 +123,6 @@ keep_pentagon := function(n, filename)
   return l; 
 end;
 
-
-
-#keep_minimal := function(n, filename, group)
-#  local l, k, x, m, f, done;
-#    
-#  l := [];
-#  k := 0;
-#
-#  f := IO_File(filename, "r");
-#  done := false;
-#
-#  while not done do
-#    x := IO_ReadLine(f);
-#    if StartsWith(x, "Created information file") then
-#      done := true;
-#    elif StartsWith(x, "Solution") then
-#      m := EvalString(String(x{[46..Size(x)]}));
-#      if is_minimal(m, group) then
-#        k := k+1;
-#        Add(l, m);
-#      fi; 
-#    fi;
-#  od; 
-#  Print("I found ", k, " solutions\n");  
-#  return l; 
-#end;
-
 read_file := function(n, filename, T)
   local l, k, x, m, f, done;
     
@@ -197,7 +146,7 @@ read_file := function(n, filename, T)
   return l;
 end;
 
-construct_pentagon := function(n)
+construct := function(n)
   local y,m,l,T,k,s,f,x,t,output, t0, t1, mytime;
 
   t0 := NanosecondsSinceEpoch();
@@ -217,12 +166,11 @@ construct_pentagon := function(n)
     Print("Running savilerow. ");
     output := Concatenation("output", String(n), "_", String(y));
     Exec(Concatenation(s, "pentagon", String(n), "_", String(y), ".eprime >", output));
-    for x in keep_pentagon(n, output) do 
+    for x in keep(n, output) do 
       Add(t, x);
       m := m+1;
     od;
 
- 
     f := IO_File(Concatenation("pentagon", String(n), "_", String(y), ".g"), "w");
     
     IO_WriteLine(f, Concatenation("semigroup", " := ", String(RecoverMultiplicationTable(n,y)), ";"));
@@ -231,14 +179,13 @@ construct_pentagon := function(n)
       IO_WriteLine(f, Concatenation(String(x),",")); 
     od;
     IO_WriteLine(f, "];\n\n");
-#    IO_WriteLine(f, "list := List(sols, x->rec( semigroup := semigroup, theta := x, size := Size(semigroup)));", "\n");
     IO_Flush(f);
     IO_Close(f);
   od;
 
   t1 := NanosecondsSinceEpoch();
   mytime := Int(Float((t1-t0)/10^6));
-  Print("I constructed ", m, " pentagon in ", mytime, "ms (=", StringTime(mytime), ")\n");
+  Print("I constructed ", m, " solutions in ", mytime, "ms (=", StringTime(mytime), ")\n");
  
 end;
 
