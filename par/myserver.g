@@ -3,7 +3,7 @@
 LoadPackage("SmallSemi");
 LoadPackage("scscp");
 
-Read("par_pentagon_v2.g");
+Read("par_pentagon.g");
 
 enumerate_byID := function(id)
   local done,z,n,y,m,l,T,k,s,f,x,t,output;
