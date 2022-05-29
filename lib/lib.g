@@ -45,7 +45,7 @@ read_all := function(n)
   t := 0;
 
   for k in [1..NrSmallSemigroups(n)] do
-    Display(Concatenation(database_path, String(n), "/pentagon", String(n), "_", String(k), ".g"));
+ #   Display(Concatenation(database_path, String(n), "/pentagon", String(n), "_", String(k), ".g"));
     Read(Concatenation(database_path, String(n), "/pentagon", String(n), "_", String(k), ".g"));
 
     semigroup := EvalString("semigroup");
@@ -57,7 +57,7 @@ read_all := function(n)
       Add(list, rec( semigroup := semigroup, theta := x, size := Size(semigroup)));
     od;
   od;
-  Display(t);
+ # Display(t);
   return list;
 end;
 
