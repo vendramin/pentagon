@@ -1,0 +1,10 @@
+SolverTotalTime:0.106151
+SavileRowClauseOut:0
+SolverSolveTime:0.008367
+SavileRowTotalTime:0.534
+SolverSatisfiable:1
+SavileRowTimeOut:0
+SolverNodes:210
+SolverTimeOut:0
+SolverSolutionsFound:101
+SolverSetupTime:0.001734
