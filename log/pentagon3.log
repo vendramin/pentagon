@@ -1,0 +1,26 @@
+Running savilerow. I found 8 solutions.
+Running savilerow. I found 4 solutions.
+Running savilerow. I found 3 solutions.
+Running savilerow. I found 2 solutions.
+Running savilerow. I found 10 solutions.
+Running savilerow. I found 7 solutions.
+Running savilerow. I found 10 solutions.
+Running savilerow. I found 8 solutions.
+Running savilerow. I found 8 solutions.
+Running savilerow. I found 7 solutions.
+Running savilerow. I found 8 solutions.
+Running savilerow. I found 9 solutions.
+Running savilerow. I found 7 solutions.
+Running savilerow. I found 10 solutions.
+Running savilerow. I found 14 solutions.
+Running savilerow. I found 11 solutions.
+Running savilerow. I found 25 solutions.
+Running savilerow. I found 9 solutions.
+Running savilerow. I found 8 solutions.
+Running savilerow. I found 10 solutions.
+Running savilerow. I found 8 solutions.
+Running savilerow. I found 7 solutions.
+Running savilerow. I found 3 solutions.
+Running savilerow. I found 2 solutions.
+I constructed 198 solutions in 13027ms (= 0:00:13.027)
+gap> construct_pentagon(4);
