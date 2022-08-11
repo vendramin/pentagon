@@ -3,6 +3,10 @@ LoadPackage("SmallSemi");
 database_path := "../data/size";
 #database_path := "../";
 
+are_theta_bijective := function(x)
+  return not (fail in List(x!.theta, PermList));
+end;
+
 is_homomorphism := function(f, x, y)
    local i, j;
   for i in [1..x!.size] do
