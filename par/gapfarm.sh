@@ -6,10 +6,10 @@
 # This script is as plain as possible to run everywhere.
 #
 ./gapd.sh -p 26101
-./gapd.sh -p 26102
+#./gapd.sh -p 26102
 ./gapd.sh -p 26103
 ./gapd.sh -p 26104
-./gapd.sh -p 26105
+#./gapd.sh -p 26105
 ./gapd.sh -p 26106
 
 
